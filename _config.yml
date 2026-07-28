@@ -1,0 +1,40 @@
+# Ocean Capital Teams Rooms Quick Start
+# Jekyll LibDoc remote theme for GitHub Pages.
+
+remote_theme: olivier3lanc/Jekyll-LibDoc
+
+title: Ocean Capital Meeting Rooms Quick Start
+description: Quick start guide for Microsoft Teams Rooms.
+
+# Keep url/baseurl commented for keosco.github.io user-site deployment.
+# If this is moved to a project repo, set baseurl to /repository-name.
+# url: https://keosco.github.io
+# baseurl: ""
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: libdoc/page
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+sass:
+  style: compressed
+
+metadata:
+  lang: en
+  color: '#007C73'
+  image: /images/00-logo.png
+
+sidebar:
+  disable_search: false
+  logo:
+    url: /images/00-logo.png
+    max_height: 44px
+    font_size: 32px
+
+# LibDoc backlink can be removed by uncommenting this line if preferred.
+# disable_powered_by_link: true
