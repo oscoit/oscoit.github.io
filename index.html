@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocean Capital Meeting Rooms Quick Start</title>
+<meta name="description" content="Quick start guide for Microsoft Teams Rooms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root { --brand-black:#231F20; --brand-teal:#007C73; --brand-teal-dark:#005C55; --brand-teal-line:#B8D8D4; --surface:#FFFFFF; --surface-alt:#F6FAF9; --text-muted:#5D6866; --radius-xl:30px; --shadow-lg:0 22px 70px rgba(0,92,85,.18); --shadow-md:0 12px 34px rgba(35,31,32,.10); --font-body:"Noto Sans",Arial,sans-serif; --font-heading:"Noto Sans",Arial,sans-serif; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:var(--font-body); color:var(--brand-black); background:radial-gradient(circle at 82% 4%,rgba(0,124,115,.14),transparent 28%),linear-gradient(180deg,#FFFFFF 0%,#F7FBFA 34%,#EEF7F5 100%); line-height:1.55; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+body.menu-open { overflow:hidden; }
+a { color:inherit; }
+.skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { left:16px; top:16px; width:auto; height:auto; background:#fff; padding:10px 14px; z-index:10000; border-radius:10px; }
+.site-header { padding:28px 22px 46px; border-bottom:1px solid var(--brand-teal-line); background:linear-gradient(135deg,#FFFFFF 0%,#F7FBFA 46%,#EAF5F3 100%); }
+.header-inner, main, .footer-inner { max-width:1180px; margin:0 auto; }
+.brand-row { display:flex; align-items:center; justify-content:space-between; gap:22px; margin-bottom:42px; }
+.brand-logo { display:block; max-width:min(640px,82vw); height:auto; }
+.room-label { color:var(--brand-teal-dark); background:rgba(255,255,255,.82); border:1px solid var(--brand-teal-line); border-radius:999px; padding:9px 15px; font-weight:800; font-size:14px; box-shadow:0 5px 18px rgba(0,92,85,.08); }
+.hero { display:grid; grid-template-columns:1.02fr .98fr; gap:32px; align-items:center; }
+.eyebrow, .section-kicker { color:var(--brand-teal); text-transform:uppercase; letter-spacing:.16em; font-size:13px; font-weight:900; margin-bottom:12px; }
+h1,h2,h3 { font-family:var(--font-heading); }
+h1 { margin:0 0 18px; max-width:760px; font-size:clamp(44px,6.2vw,76px); line-height:1.04; letter-spacing:-.032em; font-weight:700; color:var(--brand-black); }
+.hero-copy p { margin:0; max-width:720px; font-size:clamp(18px,2.15vw,22px); line-height:1.45; color:#43504E; }
+.hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+.hero-actions a { text-decoration:none; border-radius:999px; padding:12px 16px; font-weight:800; border:1px solid var(--brand-teal-line); }
+.primary-action { color:white; background:var(--brand-teal); border-color:var(--brand-teal)!important; }
+.secondary-action { color:var(--brand-teal-dark); background:white; }
+.hero-panel,.utility-card,.guide-section,.meeting-controls-section { border:1px solid var(--brand-teal-line); background:rgba(255,255,255,.88); border-radius:var(--radius-xl); box-shadow:var(--shadow-md); }
+.hero-panel { padding:24px; box-shadow:var(--shadow-lg); }
+.hero-panel h2 { margin:0 0 14px; font-size:24px; font-weight:700; color:var(--brand-teal-dark); }
+.topic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.topic-card { display:flex; align-items:center; gap:10px; min-height:60px; padding:12px; color:var(--brand-teal-dark); background:var(--surface-alt); border:1px solid var(--brand-teal-line); border-radius:17px; text-decoration:none; font-weight:600; line-height:1.28; }
+.topic-card:hover,.topic-card:focus { outline:none; background:#E3F2EF; border-color:#85C3BC; transform:translateY(-1px); }
+.topic-icon { color:var(--brand-teal); display:grid; place-items:center; }
+.topic-icon svg,.nav-inner svg { stroke:currentColor; }
+.quick-nav { background:rgba(255,255,255,.96); border-bottom:1px solid var(--brand-teal-line); }
+.nav-inner { max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:12px 18px; }
+.nav-inner a { text-decoration:none; font-size:14px; font-weight:700; color:var(--brand-teal-dark); background:#F4FAF9; border:1px solid var(--brand-teal-line); border-radius:999px; padding:9px 12px; white-space:normal; line-height:1.15; }
+.nav-inner a:hover,.nav-inner a:focus { outline:none; background:#DFF1EF; }
+.menu-button { position:fixed; right:18px; bottom:18px; z-index:1001; display:none; align-items:center; gap:9px; border:1px solid var(--brand-teal-line); border-radius:999px; padding:12px 16px; background:var(--brand-teal); color:#fff; font:800 15px/1 var(--font-body); box-shadow:0 12px 34px rgba(0,92,85,.28); cursor:pointer; }
+.menu-button svg { width:22px; height:22px; stroke:currentColor; }
+body.menu-condensed .menu-button { display:inline-flex; }
+.menu-overlay { position:fixed; inset:0; z-index:1002; display:none; background:rgba(35,31,32,.42); backdrop-filter:blur(3px); }
+.menu-drawer { position:fixed; top:0; right:0; z-index:1003; width:min(390px,92vw); height:100dvh; transform:translateX(106%); transition:transform .22s ease; background:#fff; border-left:1px solid var(--brand-teal-line); box-shadow:-18px 0 45px rgba(35,31,32,.18); padding:22px; overflow-y:auto; }
+body.menu-open .menu-overlay { display:block; }
+body.menu-open .menu-drawer { transform:translateX(0); }
+.drawer-header { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:18px; }
+.drawer-header h2 { margin:0; color:var(--brand-teal-dark); font-size:22px; }
+.drawer-close { border:1px solid var(--brand-teal-line); background:#F4FAF9; color:var(--brand-teal-dark); border-radius:999px; width:42px; height:42px; font-size:24px; line-height:1; cursor:pointer; }
+.drawer-links { display:grid; gap:10px; }
+.drawer-link { display:flex; align-items:center; min-height:48px; padding:12px 14px; border:1px solid var(--brand-teal-line); border-radius:16px; background:#F6FAF9; text-decoration:none; color:var(--brand-teal-dark); font-weight:700; }
+.drawer-link:hover,.drawer-link:focus { outline:none; background:#E3F2EF; }
+main { padding:34px 18px 110px; }
+.utility-card { display:grid; grid-template-columns:1fr minmax(260px,365px); gap:24px; align-items:center; margin-bottom:26px; padding:24px; }
+.utility-card h2 { margin:0 0 8px; font-size:30px; letter-spacing:-.03em; }
+.utility-card p { margin:0; color:var(--text-muted); font-size:17px; }
+.note-box { padding:16px; border-radius:16px; background:#EAF7F5; border-left:5px solid var(--brand-teal); color:#164E49; }
+.guide-section { display:grid; grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr); gap:34px; align-items:center; width:100%; margin:30px 0; padding:30px; overflow:hidden; }
+.section-copy { padding:4px; }
+.section-copy h2 { margin:0 0 10px; font-size:clamp(28px,3vw,44px); line-height:1.04; letter-spacing:-.035em; }
+.section-copy p { margin:0 0 16px; color:var(--text-muted); font-size:17px; }
+ol { margin:0; padding-left:22px; }
+li { margin:8px 0; }
+.section-visual { margin:0; width:100%; min-width:0; }
+.visual-shell { width:100%; border-radius:24px; overflow:hidden; background:transparent; border:0; display:flex; align-items:center; justify-content:center; }
+.visual-shell img { width:100%; height:auto; display:block; object-fit:contain; border:1px solid var(--brand-teal-line); border-radius:22px; padding:0; margin:0; background:#fff; }
+.visual-shell.missing-image { min-height:220px; background:linear-gradient(135deg,#F7FCFB,#E6F3F1); border:1px solid var(--brand-teal-line); }
+.visual-shell.missing-image::before { content:"Add image"; color:#5D6866; font-weight:800; letter-spacing:.04em; }
+.section-visual figcaption { display:none; }
+.meeting-controls-section { display:grid; grid-template-columns:minmax(300px,.82fr) minmax(420px,1.18fr); grid-template-areas:"copy visual" "list visual"; gap:24px 34px; align-items:center; width:100%; margin:30px 0; padding:42px; overflow:hidden; }
+.controls-copy { grid-area:copy; }
+.controls-copy h2 { margin:0 0 16px; font-size:clamp(34px,4vw,56px); font-weight:500; letter-spacing:-.04em; }
+.controls-copy p { margin:0; color:#4E596B; font-size:18px; max-width:560px; }
+.controls-visual { grid-area:visual; margin:0; }
+.controls-visual img { width:100%; height:auto; display:block; border-radius:18px; }
+.controls-card-list { grid-area:list; }
+.controls-card-list ol { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0; margin:0; list-style:none; }
+.controls-card-list li { margin:0; display:flex; align-items:center; gap:9px; min-height:42px; padding:9px 11px; border:1px solid var(--brand-teal-line); border-radius:14px; background:#F6FAF9; color:#4B5770; font-size:15px; line-height:1.25; }
+.controls-card-list span { flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:var(--brand-teal); color:#fff; display:grid; place-items:center; font-size:12px; font-weight:800; }
+.footer { background:var(--brand-black); color:white; padding:30px 22px; }
+.footer-inner { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; color:rgba(255,255,255,.78); }
+.footer strong { color:white; }
+@media (max-width:920px) { .site-header { padding:22px 18px 34px; } .hero,.utility-card,.guide-section { grid-template-columns:1fr; } .brand-row { flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:32px; } .brand-logo { max-width:280px; } .topic-grid { grid-template-columns:1fr; } .guide-section { padding:22px; } .quick-nav { position:static; } .nav-inner { justify-content:flex-start; flex-wrap:nowrap; overflow-x:auto; padding:10px 16px; scroll-snap-type:x proximity; } .nav-inner a { flex:0 0 auto; scroll-snap-align:start; font-size:13px; padding:8px 11px; } .menu-button { right:14px; bottom:14px; padding:11px 14px; } .meeting-controls-section { grid-template-columns:1fr; grid-template-areas:"copy" "visual" "list"; gap:18px; padding:22px; } .controls-copy h2 { font-size:clamp(30px,9vw,40px); margin-bottom:12px; } .controls-copy p { font-size:17px; line-height:1.45; } .controls-visual { width:100%; overflow:hidden; border-radius:18px; background:#F6FAF9; border:1px solid var(--brand-teal-line); padding:8px; } .controls-visual img { border-radius:14px; } .controls-card-list ol { grid-template-columns:1fr; gap:7px; } .controls-card-list li { min-height:38px; padding:8px 10px; font-size:14px; } }
+@media (max-width:520px) { .meeting-controls-section { margin:24px 0; padding:20px; } .controls-card-list ol { grid-template-columns:1fr 1fr; } .controls-card-list li { align-items:flex-start; font-size:13px; gap:7px; } .controls-card-list span { width:22px; height:22px; font-size:11px; } }
+@media print { .quick-nav,.hero-panel,.hero-actions,.menu-button,.menu-overlay,.menu-drawer { display:none!important; } .site-header { background:white; padding:20px 0; } main { padding:0; } .guide-section,.utility-card,.meeting-controls-section { box-shadow:none; break-inside:avoid; } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to guide</a>
+<header class="site-header"><div class="header-inner"><div class="brand-row"><img class="brand-logo" src="images/00-logo.png" alt="Ocean Capital"></div><div class="hero"><div class="hero-copy"><h1>Room controls, simplified.</h1><p>Use this quick reference at the room console to join meetings, share HDMI or Teams content, manage participants, and adjust the room layout.</p><div class="hero-actions"><a class="primary-action" href="#join-scheduled-meeting">Join a meeting</a><a class="secondary-action" href="#share-content">Share content</a></div></div><aside class="hero-panel" aria-label="Guide topics"><h2>What do you need to do?</h2><div class="topic-grid"><a class="topic-card" href="#home-screen">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-6h5v6"/></svg></span>
+  <span>Use the home screen</span>
+</a>
+<a class="topic-card" href="#join-scheduled-meeting">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 9h18"/><path d="M8 14h5M8 17h8"/></svg></span>
+  <span>Join a scheduled meeting</span>
+</a>
+<a class="topic-card" href="#start-meeting">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5h10a3 3 0 0 1 3 3v8H7a3 3 0 0 1-3-3v-8Z"/><path d="M17 10.5l4-2.5v8l-4-2.5"/><path d="M10.5 10v4M8.5 12h4"/></svg></span>
+  <span>Start a new meeting</span>
+</a>
+<a class="topic-card" href="#share-content">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M12 13V8M9.5 10.5 12 8l2.5 2.5"/></svg></span>
+  <span>Share content or HDMI</span>
+</a>
+<a class="topic-card" href="#join-with-id">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span>
+  <span>Join with a meeting ID</span>
+</a>
+<a class="topic-card" href="#invite-room">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h10v10H4z"/><path d="M14 10h6v7h-6z"/><path d="M7 5v4M11 5v4M17 8v4"/></svg></span>
+  <span>Invite the room</span>
+</a>
+<a class="topic-card" href="#meeting-controls">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 12h10M12 8v8"/></svg></span>
+  <span>Meeting controls</span>
+</a>
+<a class="topic-card" href="#layout-audio">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><path d="M5 17h5l5 4V3l-5 4H5v10Z"/></svg></span>
+  <span>Adjust layout and audio</span>
+</a>
+<a class="topic-card" href="#join-personal-device">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2.8" width="10" height="18.4" rx="2"/><path d="M10 18h4"/><path d="M4 8.5c1.1-1.2 2.2-1.8 3.4-2M20 8.5c-1.1-1.2-2.2-1.8-3.4-2"/></svg></span>
+  <span>Join from your device</span>
+</a>
+<a class="topic-card" href="#external-meetings">
+  <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/><path d="M15.5 15.5 19 19"/></svg></span>
+  <span>Zoom and Webex invites</span>
+</a></div></aside></div></div></header>
+<nav class="quick-nav" aria-label="Quick links"><div class="nav-inner"><a href="#home-screen">Use the home screen</a>
+<a href="#join-scheduled-meeting">Join a scheduled meeting</a>
+<a href="#start-meeting">Start a new meeting</a>
+<a href="#share-content">Share content or HDMI</a>
+<a href="#join-with-id">Join with a meeting ID</a>
+<a href="#invite-room">Invite the room</a>
+<a href="#meeting-controls">Meeting controls</a>
+<a href="#layout-audio">Adjust layout and audio</a>
+<a href="#join-personal-device">Join from your device</a>
+<a href="#external-meetings">Zoom and Webex invites</a></div></nav>
+<button class="menu-button" type="button" aria-controls="menu-drawer" aria-expanded="false" aria-label="Open quick navigation menu"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
+<div class="menu-overlay" tabindex="-1" aria-hidden="true"></div>
+<aside class="menu-drawer" id="menu-drawer" aria-hidden="true" aria-label="Quick navigation menu"><div class="drawer-header"><h2>Quick links</h2><button class="drawer-close" type="button" aria-label="Close quick navigation menu">×</button></div><div class="drawer-links"><a href="#home-screen" class="drawer-link">Use the home screen</a>
+<a href="#join-scheduled-meeting" class="drawer-link">Join a scheduled meeting</a>
+<a href="#start-meeting" class="drawer-link">Start a new meeting</a>
+<a href="#share-content" class="drawer-link">Share content or HDMI</a>
+<a href="#join-with-id" class="drawer-link">Join with a meeting ID</a>
+<a href="#invite-room" class="drawer-link">Invite the room</a>
+<a href="#meeting-controls" class="drawer-link">Meeting controls</a>
+<a href="#layout-audio" class="drawer-link">Adjust layout and audio</a>
+<a href="#join-personal-device" class="drawer-link">Join from your device</a>
+<a href="#external-meetings" class="drawer-link">Zoom and Webex invites</a></div></aside>
+<main id="main"><div class="utility-card"><div><h2>Before you start</h2><p>If a meeting is scheduled for the room, it should appear on the touch panel. If joining from a laptop or phone as well, keep personal device audio muted to avoid feedback.</p></div><div class="note-box"><strong>Need help?</strong><br>If the room is not working as expected, submit an IT ticket and include the room name.</div></div>
+    <section id="home-screen" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/01-home-screen.png" alt="Teams Rooms home screen showing room controls and scheduled meetings" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+      <div class="section-copy">
+        <div class="section-kicker">Getting started</div>
+        <h2>Use the home screen</h2>
+        <p>The touch panel is the starting point for room controls. Scheduled meetings, Meet, Share, Join with ID, and More options are available from the room console.</p>
+        <ol>
+          <li>Check the room calendar on the home screen.</li>
+          <li>Use the main action buttons for meeting and sharing tasks.</li>
+          <li>If the room is already invited to a meeting, select Join from the meeting tile.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="join-scheduled-meeting" class="guide-section">
+      <div class="section-copy">
+        <div class="section-kicker">Meetings</div>
+        <h2>Join a scheduled meeting</h2>
+        <p>Meetings scheduled for the room appear on the touch panel. This is the fastest way to join from the room system.</p>
+        <ol>
+          <li>Find the meeting on the room touch panel.</li>
+          <li>Select Join.</li>
+          <li>Join from a laptop or mobile device too if meeting chat or personal content sharing is needed.</li>
+        </ol>
+      </div>
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/02-join-scheduled-meeting.png" alt="Join button on a scheduled Teams Rooms meeting tile" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+    </section>
+
+    <section id="start-meeting" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/03-start-meeting.png" alt="Meet button on a Teams Rooms touch panel" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+      <div class="section-copy">
+        <div class="section-kicker">Meetings</div>
+        <h2>Start a new meeting</h2>
+        <p>Use Meet when an unscheduled meeting needs to start directly from the room.</p>
+        <ol>
+          <li>Select Meet.</li>
+          <li>Search for a person or number.</li>
+          <li>Add the people needed for the meeting.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="share-content" class="guide-section">
+      <div class="section-copy">
+        <div class="section-kicker">Presenting</div>
+        <h2>Share content or HDMI</h2>
+        <p>Share content to the room display, including HDMI content when the room table has an HDMI connection available.</p>
+        <ol>
+          <li>Connect the HDMI cable if using a wired room connection.</li>
+          <li>Select Share or Present on the room console if the content does not appear automatically.</li>
+          <li>Use Stop presenting when finished.</li>
+        </ol>
+      </div>
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/05-share-content-hdmi.png" alt="Teams Rooms share content or HDMI sharing view" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+    </section>
+
+    <section id="join-with-id" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/06-join-with-id.png" alt="Teams Rooms join with meeting ID screen" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+      <div class="section-copy">
+        <div class="section-kicker">Meetings</div>
+        <h2>Join with a meeting ID</h2>
+        <p>Use Join with an ID when the meeting is not listed on the room calendar but the Teams meeting ID and passcode are available.</p>
+        <ol>
+          <li>Select Join with an ID.</li>
+          <li>Enter the meeting ID.</li>
+          <li>Enter the passcode if prompted.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="invite-room" class="guide-section">
+      <div class="section-copy">
+        <div class="section-kicker">Calendar</div>
+        <h2>Invite the room</h2>
+        <p>If a meeting exists on a laptop or mobile device but the room was not invited, add the room to the meeting so the room can join.</p>
+        <ol>
+          <li>Open the meeting invite from the device.</li>
+          <li>Add the meeting room as a participant or location.</li>
+          <li>Join from the room touch panel after the invite reaches the room.</li>
+        </ol>
+      </div>
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/07-invite-room.png" alt="Meeting invite showing a room added as a participant" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+    </section>
+
+    <section id="meeting-controls" class="meeting-controls-section">
+      <div class="controls-copy">
+        <div class="section-kicker">Controls</div>
+        <h2>Meeting Controls</h2>
+        <p>Use this quick overview to identify the common controls available while you are in a meeting.</p>
+      </div>
+      <figure class="controls-visual">
+        <img src="images/08-meeting-controls.png" alt="Annotated Teams Rooms meeting controls overview" loading="lazy">
+      </figure>
+      <div class="controls-card-list" aria-label="Meeting control legend">
+        <ol>
+          <li><span>1</span>View options</li>
+<li><span>2</span>Raise your hand</li>
+<li><span>3</span>Reactions</li>
+<li><span>4</span>Options</li>
+<li><span>5</span>Volume control</li>
+<li><span>6</span>Camera on/off</li>
+<li><span>7</span>Mute on/off</li>
+<li><span>8</span>Share content</li>
+<li><span>9</span>End call</li>
+<li><span>10</span>Change view</li>
+<li><span>11</span>Invite someone</li>
+<li><span>12</span>Participants</li>
+<li><span>13</span>Manage participants</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="layout-audio" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/09-layout-audio.png" alt="Teams Rooms layout and audio settings" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+      <div class="section-copy">
+        <div class="section-kicker">In a meeting</div>
+        <h2>Adjust layout and audio</h2>
+        <p>Room layout, volume, and microphone controls are available during the meeting from the room console.</p>
+        <ol>
+          <li>Select Layout or View to choose the room display layout.</li>
+          <li>Use Volume controls to adjust speaker volume.</li>
+          <li>Mute or unmute the room microphone from the touch panel.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="join-personal-device" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/10-join-personal-device.png" alt="Laptop or phone joining a Teams meeting with room audio muted" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+      <div class="section-copy">
+        <div class="section-kicker">Companion mode</div>
+        <h2>Join from your device</h2>
+        <p>Joining from a personal device is useful for meeting chat, personal file sharing, or participant views.</p>
+        <ol>
+          <li>Join the same Teams meeting from the personal device.</li>
+          <li>Do not use personal device audio unless specifically needed.</li>
+          <li>Keep the personal device muted to prevent audio feedback.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="external-meetings" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/11-zoom-webex.png" alt="External meeting invite displayed on a Teams Rooms room calendar" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
+      <div class="section-copy">
+        <div class="section-kicker">External meetings</div>
+        <h2>Zoom and Webex invites</h2>
+        <p>External meeting invites can be forwarded to the room when the meeting needs to be joined from the room system.</p>
+        <ol>
+          <li>Select &#x27;Join With an ID #&#x27;.</li>
+          <li>Choose the meeting service provider, Zoom/WebEx.</li>
+          <li>Enter the meeting ID &amp; passcode, then Join.</li>
+        </ol>
+      </div>
+    </section>
+</main><footer class="footer"><div class="footer-inner"><div><strong>© 2026 Ocean Capital – All rights reserved.</strong><br>For additional support please contact IT.</div><div>Last updated: 2026-07-28</div></div></footer>
+<script>
+(() => {
+  const body = document.body;
+  const quickNav = document.querySelector('.quick-nav');
+  const menuButton = document.querySelector('.menu-button');
+  const drawer = document.querySelector('.menu-drawer');
+  const overlay = document.querySelector('.menu-overlay');
+  const closeButton = document.querySelector('.drawer-close');
+  const links = document.querySelectorAll('.drawer-link');
+  function shouldCondense() { if (!quickNav) return false; const navBottom = quickNav.offsetTop + quickNav.offsetHeight; return window.scrollY > navBottom + 24; }
+  function updateMenuButton() { body.classList.toggle('menu-condensed', shouldCondense()); }
+  function openMenu() { body.classList.add('menu-open'); menuButton.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); const firstLink = drawer.querySelector('a'); if (firstLink) firstLink.focus({preventScroll:true}); }
+  function closeMenu() { body.classList.remove('menu-open'); menuButton.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); menuButton.focus({preventScroll:true}); }
+  window.addEventListener('scroll', updateMenuButton, { passive:true });
+  window.addEventListener('resize', updateMenuButton);
+  menuButton.addEventListener('click', openMenu);
+  overlay.addEventListener('click', closeMenu);
+  closeButton.addEventListener('click', closeMenu);
+  links.forEach(link => link.addEventListener('click', () => body.classList.remove('menu-open')));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && body.classList.contains('menu-open')) closeMenu(); });
+  updateMenuButton();
+})();
+</script>
+</body></html>
