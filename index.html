@@ -21,7 +21,6 @@ a { color:inherit; }
 .header-inner, main, .footer-inner { max-width:1180px; margin:0 auto; }
 .brand-row { display:flex; align-items:center; justify-content:space-between; gap:22px; margin-bottom:42px; }
 .brand-logo { display:block; max-width:min(640px,82vw); height:auto; }
-.room-label { color:var(--brand-teal-dark); background:rgba(255,255,255,.82); border:1px solid var(--brand-teal-line); border-radius:999px; padding:9px 15px; font-weight:800; font-size:14px; box-shadow:0 5px 18px rgba(0,92,85,.08); }
 .hero { display:grid; grid-template-columns:1.02fr .98fr; gap:32px; align-items:center; }
 .eyebrow, .section-kicker { color:var(--brand-teal); text-transform:uppercase; letter-spacing:.16em; font-size:13px; font-weight:900; margin-bottom:12px; }
 h1,h2,h3 { font-family:var(--font-heading); }
@@ -38,14 +37,9 @@ h1 { margin:0 0 18px; max-width:760px; font-size:clamp(44px,6.2vw,76px); line-he
 .topic-card { display:flex; align-items:center; gap:10px; min-height:60px; padding:12px; color:var(--brand-teal-dark); background:var(--surface-alt); border:1px solid var(--brand-teal-line); border-radius:17px; text-decoration:none; font-weight:600; line-height:1.28; }
 .topic-card:hover,.topic-card:focus { outline:none; background:#E3F2EF; border-color:#85C3BC; transform:translateY(-1px); }
 .topic-icon { color:var(--brand-teal); display:grid; place-items:center; }
-.topic-icon svg,.nav-inner svg { stroke:currentColor; }
-.quick-nav { background:rgba(255,255,255,.96); border-bottom:1px solid var(--brand-teal-line); }
-.nav-inner { max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:12px 18px; }
-.nav-inner a { text-decoration:none; font-size:14px; font-weight:700; color:var(--brand-teal-dark); background:#F4FAF9; border:1px solid var(--brand-teal-line); border-radius:999px; padding:9px 12px; white-space:normal; line-height:1.15; }
-.nav-inner a:hover,.nav-inner a:focus { outline:none; background:#DFF1EF; }
-.menu-button { position:fixed; right:18px; bottom:18px; z-index:1001; display:none; align-items:center; gap:9px; border:1px solid var(--brand-teal-line); border-radius:999px; padding:12px 16px; background:var(--brand-teal); color:#fff; font:800 15px/1 var(--font-body); box-shadow:0 12px 34px rgba(0,92,85,.28); cursor:pointer; }
+.topic-icon svg { stroke:currentColor; }
+.menu-button { position:fixed; right:18px; bottom:18px; z-index:1001; display:inline-flex; align-items:center; gap:9px; border:1px solid var(--brand-teal-line); border-radius:999px; padding:12px 16px; background:var(--brand-teal); color:#fff; font:800 15px/1 var(--font-body); box-shadow:0 12px 34px rgba(0,92,85,.28); cursor:pointer; }
 .menu-button svg { width:22px; height:22px; stroke:currentColor; }
-body.menu-condensed .menu-button { display:inline-flex; }
 .menu-overlay { position:fixed; inset:0; z-index:1002; display:none; background:rgba(35,31,32,.42); backdrop-filter:blur(3px); }
 .menu-drawer { position:fixed; top:0; right:0; z-index:1003; width:min(390px,92vw); height:100dvh; transform:translateX(106%); transition:transform .22s ease; background:#fff; border-left:1px solid var(--brand-teal-line); box-shadow:-18px 0 45px rgba(35,31,32,.18); padding:22px; overflow-y:auto; }
 body.menu-open .menu-overlay { display:block; }
@@ -57,10 +51,9 @@ body.menu-open .menu-drawer { transform:translateX(0); }
 .drawer-link { display:flex; align-items:center; min-height:48px; padding:12px 14px; border:1px solid var(--brand-teal-line); border-radius:16px; background:#F6FAF9; text-decoration:none; color:var(--brand-teal-dark); font-weight:700; }
 .drawer-link:hover,.drawer-link:focus { outline:none; background:#E3F2EF; }
 main { padding:34px 18px 110px; }
-.utility-card { display:grid; grid-template-columns:1fr minmax(260px,365px); gap:24px; align-items:center; margin-bottom:26px; padding:24px; }
+.utility-card { display:block; margin-bottom:26px; padding:24px; }
 .utility-card h2 { margin:0 0 8px; font-size:30px; letter-spacing:-.03em; }
 .utility-card p { margin:0; color:var(--text-muted); font-size:17px; }
-.note-box { padding:16px; border-radius:16px; background:#EAF7F5; border-left:5px solid var(--brand-teal); color:#164E49; }
 .guide-section { display:grid; grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr); gap:34px; align-items:center; width:100%; margin:30px 0; padding:30px; overflow:hidden; }
 .section-copy { padding:4px; }
 .section-copy h2 { margin:0 0 10px; font-size:clamp(28px,3vw,44px); line-height:1.04; letter-spacing:-.035em; }
@@ -86,9 +79,9 @@ li { margin:8px 0; }
 .footer { background:var(--brand-black); color:white; padding:30px 22px; }
 .footer-inner { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; color:rgba(255,255,255,.78); }
 .footer strong { color:white; }
-@media (max-width:920px) { .site-header { padding:22px 18px 34px; } .hero,.utility-card,.guide-section { grid-template-columns:1fr; } .brand-row { flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:32px; } .brand-logo { max-width:280px; } .topic-grid { grid-template-columns:1fr; } .guide-section { padding:22px; } .quick-nav { position:static; } .nav-inner { justify-content:flex-start; flex-wrap:nowrap; overflow-x:auto; padding:10px 16px; scroll-snap-type:x proximity; } .nav-inner a { flex:0 0 auto; scroll-snap-align:start; font-size:13px; padding:8px 11px; } .menu-button { right:14px; bottom:14px; padding:11px 14px; } .meeting-controls-section { grid-template-columns:1fr; grid-template-areas:"copy" "visual" "list"; gap:18px; padding:22px; } .controls-copy h2 { font-size:clamp(30px,9vw,40px); margin-bottom:12px; } .controls-copy p { font-size:17px; line-height:1.45; } .controls-visual { width:100%; overflow:hidden; border-radius:18px; background:#F6FAF9; border:1px solid var(--brand-teal-line); padding:8px; } .controls-visual img { border-radius:14px; } .controls-card-list ol { grid-template-columns:1fr; gap:7px; } .controls-card-list li { min-height:38px; padding:8px 10px; font-size:14px; } }
+@media (max-width:920px) { .site-header { padding:22px 18px 34px; } .hero,.guide-section { grid-template-columns:1fr; } .brand-row { flex-direction:column; align-items:flex-start; gap:14px; margin-bottom:32px; } .brand-logo { max-width:280px; } .topic-grid { grid-template-columns:1fr; } .guide-section { padding:22px; } .menu-button { right:14px; bottom:14px; padding:11px 14px; } .meeting-controls-section { grid-template-columns:1fr; grid-template-areas:"copy" "visual" "list"; gap:18px; padding:22px; } .controls-copy h2 { font-size:clamp(30px,9vw,40px); margin-bottom:12px; } .controls-copy p { font-size:17px; line-height:1.45; } .controls-visual { width:100%; overflow:hidden; border-radius:18px; background:#F6FAF9; border:1px solid var(--brand-teal-line); padding:8px; } .controls-visual img { border-radius:14px; } .controls-card-list ol { grid-template-columns:1fr; gap:7px; } .controls-card-list li { min-height:38px; padding:8px 10px; font-size:14px; } }
 @media (max-width:520px) { .meeting-controls-section { margin:24px 0; padding:20px; } .controls-card-list ol { grid-template-columns:1fr 1fr; } .controls-card-list li { align-items:flex-start; font-size:13px; gap:7px; } .controls-card-list span { width:22px; height:22px; font-size:11px; } }
-@media print { .quick-nav,.hero-panel,.hero-actions,.menu-button,.menu-overlay,.menu-drawer { display:none!important; } .site-header { background:white; padding:20px 0; } main { padding:0; } .guide-section,.utility-card,.meeting-controls-section { box-shadow:none; break-inside:avoid; } }
+@media print { .hero-panel,.hero-actions,.menu-button,.menu-overlay,.menu-drawer { display:none!important; } .site-header { background:white; padding:20px 0; } main { padding:0; } .guide-section,.meeting-controls-section { box-shadow:none; break-inside:avoid; } }
 </style>
 </head>
 <body>
@@ -133,16 +126,6 @@ li { margin:8px 0; }
   <span class="topic-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/><path d="M15.5 15.5 19 19"/></svg></span>
   <span>Zoom and Webex invites</span>
 </a></div></aside></div></div></header>
-<nav class="quick-nav" aria-label="Quick links"><div class="nav-inner"><a href="#home-screen">Use the home screen</a>
-<a href="#join-scheduled-meeting">Join a scheduled meeting</a>
-<a href="#start-meeting">Start a new meeting</a>
-<a href="#share-content">Share content or HDMI</a>
-<a href="#join-with-id">Join with a meeting ID</a>
-<a href="#invite-room">Invite the room</a>
-<a href="#meeting-controls">Meeting controls</a>
-<a href="#layout-audio">Adjust layout and audio</a>
-<a href="#join-personal-device">Join from your device</a>
-<a href="#external-meetings">Zoom and Webex invites</a></div></nav>
 <button class="menu-button" type="button" aria-controls="menu-drawer" aria-expanded="false" aria-label="Open quick navigation menu"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
 <div class="menu-overlay" tabindex="-1" aria-hidden="true"></div>
 <aside class="menu-drawer" id="menu-drawer" aria-hidden="true" aria-label="Quick navigation menu"><div class="drawer-header"><h2>Quick links</h2><button class="drawer-close" type="button" aria-label="Close quick navigation menu">×</button></div><div class="drawer-links"><a href="#home-screen" class="drawer-link">Use the home screen</a>
@@ -155,7 +138,7 @@ li { margin:8px 0; }
 <a href="#layout-audio" class="drawer-link">Adjust layout and audio</a>
 <a href="#join-personal-device" class="drawer-link">Join from your device</a>
 <a href="#external-meetings" class="drawer-link">Zoom and Webex invites</a></div></aside>
-<main id="main"><div class="utility-card"><div><h2>Before you start</h2><p>If a meeting is scheduled for the room, it should appear on the touch panel. If joining from a laptop or phone as well, keep personal device audio muted to avoid feedback.</p></div><div class="note-box"><strong>Need help?</strong><br>If the room is not working as expected, submit an IT ticket and include the room name.</div></div>
+<main id="main">
     <section id="home-screen" class="guide-section">
       <figure class="section-visual">
         <div class="visual-shell">
@@ -175,6 +158,11 @@ li { margin:8px 0; }
     </section>
 
     <section id="join-scheduled-meeting" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/02-join-scheduled-meeting.png" alt="Join button on a scheduled Teams Rooms meeting tile" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
       <div class="section-copy">
         <div class="section-kicker">Meetings</div>
         <h2>Join a scheduled meeting</h2>
@@ -182,14 +170,9 @@ li { margin:8px 0; }
         <ol>
           <li>Find the meeting on the room touch panel.</li>
           <li>Select Join.</li>
-          <li>Join from a laptop or mobile device too if meeting chat or personal content sharing is needed.</li>
+          <li>Join from a laptop or mobile device too, if meeting chat or personal content sharing is needed.</li>
         </ol>
       </div>
-      <figure class="section-visual">
-        <div class="visual-shell">
-          <img src="images/02-join-scheduled-meeting.png" alt="Join button on a scheduled Teams Rooms meeting tile" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
-        </div>
-      </figure>
     </section>
 
     <section id="start-meeting" class="guide-section">
@@ -211,6 +194,11 @@ li { margin:8px 0; }
     </section>
 
     <section id="share-content" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/05-share-content-hdmi.png" alt="Teams Rooms share content or HDMI sharing view" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
       <div class="section-copy">
         <div class="section-kicker">Presenting</div>
         <h2>Share content or HDMI</h2>
@@ -221,11 +209,6 @@ li { margin:8px 0; }
           <li>Use Stop presenting when finished.</li>
         </ol>
       </div>
-      <figure class="section-visual">
-        <div class="visual-shell">
-          <img src="images/05-share-content-hdmi.png" alt="Teams Rooms share content or HDMI sharing view" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
-        </div>
-      </figure>
     </section>
 
     <section id="join-with-id" class="guide-section">
@@ -247,6 +230,11 @@ li { margin:8px 0; }
     </section>
 
     <section id="invite-room" class="guide-section">
+      <figure class="section-visual">
+        <div class="visual-shell">
+          <img src="images/07-invite-room.png" alt="Meeting invite showing a room added as a participant" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
+        </div>
+      </figure>
       <div class="section-copy">
         <div class="section-kicker">Calendar</div>
         <h2>Invite the room</h2>
@@ -257,11 +245,6 @@ li { margin:8px 0; }
           <li>Join from the room touch panel after the invite reaches the room.</li>
         </ol>
       </div>
-      <figure class="section-visual">
-        <div class="visual-shell">
-          <img src="images/07-invite-room.png" alt="Meeting invite showing a room added as a participant" loading="lazy" onerror="this.closest('.visual-shell').classList.add('missing-image'); this.remove();">
-        </div>
-      </figure>
     </section>
 
     <section id="meeting-controls" class="meeting-controls-section">
@@ -337,7 +320,7 @@ li { margin:8px 0; }
       <div class="section-copy">
         <div class="section-kicker">External meetings</div>
         <h2>Zoom and Webex invites</h2>
-        <p>External meeting invites can be forwarded to the room when the meeting needs to be joined from the room system.</p>
+        <p>External meeting invites can be forwarded to the room when the meeting needs to be joined from the room system but should this not appear, you have the option to join with ID.</p>
         <ol>
           <li>Select &#x27;Join With an ID #&#x27;.</li>
           <li>Choose the meeting service provider, Zoom/WebEx.</li>
@@ -349,24 +332,18 @@ li { margin:8px 0; }
 <script>
 (() => {
   const body = document.body;
-  const quickNav = document.querySelector('.quick-nav');
   const menuButton = document.querySelector('.menu-button');
   const drawer = document.querySelector('.menu-drawer');
   const overlay = document.querySelector('.menu-overlay');
   const closeButton = document.querySelector('.drawer-close');
   const links = document.querySelectorAll('.drawer-link');
-  function shouldCondense() { if (!quickNav) return false; const navBottom = quickNav.offsetTop + quickNav.offsetHeight; return window.scrollY > navBottom + 24; }
-  function updateMenuButton() { body.classList.toggle('menu-condensed', shouldCondense()); }
   function openMenu() { body.classList.add('menu-open'); menuButton.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); const firstLink = drawer.querySelector('a'); if (firstLink) firstLink.focus({preventScroll:true}); }
   function closeMenu() { body.classList.remove('menu-open'); menuButton.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); menuButton.focus({preventScroll:true}); }
-  window.addEventListener('scroll', updateMenuButton, { passive:true });
-  window.addEventListener('resize', updateMenuButton);
   menuButton.addEventListener('click', openMenu);
   overlay.addEventListener('click', closeMenu);
   closeButton.addEventListener('click', closeMenu);
   links.forEach(link => link.addEventListener('click', () => body.classList.remove('menu-open')));
   document.addEventListener('keydown', event => { if (event.key === 'Escape' && body.classList.contains('menu-open')) closeMenu(); });
-  updateMenuButton();
 })();
 </script>
 </body></html>
